@@ -1,0 +1,11 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+  SUPABASE_URL = "https://yryqnzdiexvynkjusvjr.supabase.co"
+  SUPABASE_SERVICE_ROLE_KEY = "sb_publishable_fUOe6Uz8J-mbz5WZHbNlXw_Ev5Xj4Lb"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

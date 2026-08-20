@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+@theme {
+  /* Fonts - using next/font CSS variables */
+  --font-sans: var(--font-cabin), Arial, Helvetica, sans-serif;
+  --font-heading: var(--font-geologica), Arial, Helvetica, sans-serif;
+
+  /* Colors from hkpep.cc */
+  --color-primary: rgb(221, 51, 51);
+  --color-primary-hover: rgb(200, 40, 40);
+  --color-accent: rgb(136, 173, 153);
+  --color-accent-hover: rgb(124, 157, 139);
+  --color-text: #777777;
+  --color-title: #242424;
+  --color-entities-title: #333333;
+  --color-light-bg: rgb(247, 247, 247);
+  --color-footer-bg: rgb(15, 15, 15);
+  --color-header-bg: rgba(255, 255, 255, 0.9);
+  --color-promo-bg: rgba(21, 21, 21, 1);
+
+  /* Border radius */
+  --radius-base: 16px;
+  --radius-btn: 35px;
+
+  /* Container */
+  --container-max: 1720px;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    color: var(--color-text);
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #ffffff;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    color: var(--color-title);
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .container-wd {
+    max-width: var(--container-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #fff;
+    background-color: var(--color-primary);
+    padding: 12px 32px;
+    border-radius: var(--radius-btn);
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-primary-hover);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: capitalize;
+    color: var(--color-title);
+    background: transparent;
+    padding: 12px 32px;
+    border-radius: var(--radius-btn);
+    border: 2px solid var(--color-title);
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-title);
+    color: #fff;
+  }
+
+  .section-title {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    color: var(--color-title);
+    font-size: 36px;
+    line-height: 1.2;
+  }
+}
+
+/* Marquee animation */
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-marquee {
+  animation: marquee-scroll 30s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-scroll 30s linear infinite reverse;
+}
+
+/* Hero slider fade */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-hover);
+}
